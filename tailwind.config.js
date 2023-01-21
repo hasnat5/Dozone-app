@@ -10,7 +10,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        visbyBold: ["visbyBold"]
+        visbyHeavy: ["visbyHeavy"],
+        visbyExtraBold: ["visbyExtraBold"],
+        visbyBold: ["visbyBold"],
+        visbyMedium: ["visbyMedium"],
+        visbyRegular: ["visbyRegular"],
+        visbyThin: ["visbyThin"],
       },
     },
   },

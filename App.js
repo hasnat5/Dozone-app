@@ -12,7 +12,12 @@ const Stack = createNativeStackNavigator();
 export default function App() {
 
   const [fontsLoaded] = useFonts({
+    visbyHeavy: require('./assets/font/visbycf-heavy.otf'),
+    visbyExtraBold: require('./assets/font/visbycf-extrabold.otf'),
     visbyBold: require('./assets/font/visbycf-bold.otf'),
+    visbyMedium: require('./assets/font/visbycf-medium.otf'),
+    visbyRegular: require('./assets/font/visbycf-regular.otf'),
+    visbyThin: require('./assets/font/visbycf-thin.otf'),
   });
 
   useEffect(() => {

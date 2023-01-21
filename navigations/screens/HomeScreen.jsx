@@ -1,10 +1,8 @@
 import React, { useLayoutEffect } from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, ScrollView, Image, Pressable } from 'react-native';
+import { Text, View, ScrollView, Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-// import { useFonts } from 'expo-font';
-import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
 export const HomeScreen = ({ navigation }) => {
@@ -17,45 +15,72 @@ export const HomeScreen = ({ navigation }) => {
 
     return (
 
-        <SafeAreaView className="bg-orange-200 px-4">
-            <View className="flex-row justify-between py-2">
-                <Text className="font-visbyBold text-3xl">AirMission</Text>
-                <View className="flex self-center">
-                    <View className="py-1 px-2 rounded-md bg-green-400">
-                        <Text className="font-visbyBold">Air Mission</Text>
+        <SafeAreaView className="px-4">
+            <View View className="flex-row justify-between py-4" >
+                <Text className="font-visbyBold text-xl">AirMission</Text>
+
+                <View className="flex-row items-center px-2 rounded-md bg-white">
+                    <Icon style={{ marginRight: 4 }} name={'stars'} size={16} color={'rgb(251, 191, 36)'} />
+                    <Text className="font-visbyBold text-sm">250</Text>
+                </View>
+            </View >
+
+
+            {/* KONTEN */}
+            <ScrollView className="container">
+                <View className="flex justify-between bg-blue-200 h-56 p-4 rounded-3xl mb-6">
+                    <Text className="font-visbyBold text-3xl">Daftar Misi</Text>
+                    <View className="flex items-start">
+                        <Pressable
+                            className="bg-zinc-600 px-4 py-2 rounded-xl items-start"
+                            onPress={() => navigation.navigate('MissionList')}
+                        >
+                            <Text className="font-visbyBold text-white text-base">Daftar misi</Text>
+                        </Pressable>
                     </View>
                 </View>
-            </View>
+                <View className="flex-row items-center justify-between bg-blue-200 p-4 rounded-3xl mb-6">
+                    <Text className="font-visbyBold text-2xl">Daftar Misi</Text>
+                    <View className="flex items-start">
+                        <Pressable
+                            className="bg-zinc-600 px-4 py-2 rounded-xl items-start"
+                            onPress={() => navigation.navigate('MissionList')}
+                        >
+                            <Text className="font-visbyBold text-white text-sm">View Detail</Text>
+                        </Pressable>
+                    </View>
+                </View>
 
-            <ScrollView className="container mx-auto bg-green-300">
-                <View className="bg-blue-200 p-4 h-auto rounded-2xl ">
-                    <Text className="font-visbyBold text-xl mb-6">Proses Saya new</Text>
-                    <Pressable
-                        className="inline bg-zinc-600 px-4 py-2 rounded-xl"
-                        onPress={() => navigation.navigate('MissionList')}
-                    >
-                        <Text className="inline text-white font-bold">Daftar misi</Text>
-                    </Pressable>
+                {/* LAINNYA */}
+                <Text className="font-visbyBold text-3xl mb-6">Lainnya</Text>
+                <View className="flex-row gap-4 justify-between h-64 mb-10">
+                    <View className="flex items-center justify-between bg-blue-200 p-4 flex-1 rounded-3xl mb-6">
+                        <Text className="font-visbyBold text-2xl">Daftar Misi</Text>
+                        <View className="flex items-start">
+                            <Pressable
+                                className="bg-zinc-600 px-4 py-2 rounded-xl items-start"
+                                onPress={() => navigation.navigate('MissionList')}
+                            >
+                                <Text className="font-visbyBold text-white text-sm">View Detail</Text>
+                            </Pressable>
+                        </View>
+                    </View>
+                    <View className="flex items-center justify-between bg-blue-200 flex-1 p-4 rounded-3xl mb-6">
+                        <Text className="font-visbyBold text-2xl">Daftar Misi</Text>
+                        <View className="flex items-start">
+                            <Pressable
+                                className="bg-zinc-600 px-4 py-2 rounded-xl items-start"
+                                onPress={() => navigation.navigate('MissionList')}
+                            >
+                                <Text className="font-visbyRegular text-white text-sm">View Detail</Text>
+                            </Pressable>
+                        </View>
+                    </View>
                 </View>
-                <View className="container grid items-center justify-center">
-                    <Text className="text-red-500 text-4xl font-bold">Natkun top</Text>
-                    <Image
-                        className="h-8 w-8"
-                        source={{
-                            uri: 'https://reactnative.dev/img/tiny_logo.png',
-                        }}
-                    />
-                    <Text className="text-red-500 text-4xl font-bold mt-[1000px]">Natkun bawah</Text>
-                    <Pressable
-                        className="bg-zinc-600 px-4 py-2 mb-80 rounded-xl"
-                        onPress={() => navigation.navigate('Shop')}
-                    >
-                        <Text className="text-white font-bold">Shop</Text>
-                    </Pressable>
-                    <StatusBar style="auto" />
-                </View>
-            </ScrollView>
-        </SafeAreaView>
+
+                <StatusBar style="auto" />
+            </ScrollView >
+        </SafeAreaView >
 
 
     )

@@ -28,7 +28,7 @@ const MainContainer = ({ navigation }) => {
             initialRouteName={homeName}
             screenOptions={({ route }) => ({
                 // tabBarActiveTintColor: 'blue',
-                tabBarLabelStyle: { fontSize: 12, paddingBottom: 6 },
+                tabBarLabelStyle: { fontSize: 12, paddingBottom: 6, fontFamily: 'visbyMedium' },
                 tabBarStyle: {
                     height: 56,
                 },
