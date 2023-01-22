@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react'
+import React from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, ScrollView, Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -6,12 +6,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
 export const HomeScreen = ({ navigation }) => {
-
-    useLayoutEffect(() => {
-        navigation.setOptions({
-            headerShown: false,
-        });
-    }, [])
 
     return (
 

@@ -1,6 +1,7 @@
-import React, { useLayoutEffect } from 'react'
+import React from 'react'
 import { Alert, FlatList, Image, Pressable, StatusBar, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const DATA = [
     {
@@ -43,31 +44,16 @@ const Item = ({ title, link }) => (
     </View >
 );
 
-// const Item = ({ title }) => {
-//     return (
-//         <View className="flex-1 max-w-[50%] bg-green-300">
-//             <Text>{title}</Text>
-//             {/* <Button>{title}</Button> */}
-//         </View>
-//     );
-// };
 
-
-export const Shop = ({ navigation }) => {
-    useLayoutEffect(() => {
-        navigation.setOptions({
-            headerShown: false,
-        });
-    }, [])
+export const Shop = () => {
 
     return (
         <SafeAreaView className="px-2">
             <View View className="flex-row justify-between pt-4 pb-2 px-2" >
                 <Text className="font-visbyBold text-xl">Shop</Text>
-                <View className="flex self-center">
-                    <View className="py-1 px-2 rounded-md bg-green-400">
-                        <Text className="font-visbyBold">Air Mission</Text>
-                    </View>
+                <View className="flex-row items-center px-2 rounded-md bg-white">
+                    <Icon style={{ marginRight: 4 }} name={'stars'} size={16} color={'rgb(251, 191, 36)'} />
+                    <Text className="font-visbyBold text-sm">250</Text>
                 </View>
             </View >
 

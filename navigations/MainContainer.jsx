@@ -27,11 +27,12 @@ const MainContainer = ({ navigation }) => {
         <Tab.Navigator
             initialRouteName={homeName}
             screenOptions={({ route }) => ({
-                // tabBarActiveTintColor: 'blue',
+                tabBarActiveTintColor: 'rgb(74, 222, 128)',
                 tabBarLabelStyle: { fontSize: 12, paddingBottom: 6, fontFamily: 'visbyMedium' },
                 tabBarStyle: {
                     height: 56,
                 },
+                headerShown: false,
 
                 tabBarIcon: ({ color, size }) => {
                     let iconName;

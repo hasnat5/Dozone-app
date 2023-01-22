@@ -1,14 +1,9 @@
-import React, { useLayoutEffect } from 'react'
+import React from 'react'
 import { Text, StatusBar, View, Pressable, Alert } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Mission = ({ navigation }) => {
-    useLayoutEffect(() => {
-        navigation.setOptions({
-            headerShown: false,
-        });
-    }, [])
 
     return (
         <SafeAreaView className="h-screen px-4">
@@ -22,8 +17,8 @@ const Mission = ({ navigation }) => {
             </View >
 
             {/* ADD MISSION */}
-            <Pressable onPress={() => navigation.navigate('MissionList')} className="absolute bottom-6 right-6 rounded-xl bg-white p-2 text-green-400">
-                <Icon name={'add'} size={24} color={'rgb(74, 222, 128)'} />
+            <Pressable onPress={() => navigation.navigate('MissionList')} className="absolute bottom-6 right-6 rounded-xl bg-green-400 p-3">
+                <Icon name={'add'} size={24} color={'white'} />
             </Pressable>
 
             {/* KONTEN */}

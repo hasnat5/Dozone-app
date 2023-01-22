@@ -35,7 +35,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Main">
+      <Stack.Navigator initialRouteName="Main" >
         <Stack.Screen name="Main" component={MainContainer} />
         <Stack.Screen name="MissionList" component={MissionList} />
       </Stack.Navigator>
