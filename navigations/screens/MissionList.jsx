@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Pressable, Text, View, Alert } from 'react-native'
+import { Alert, Pressable, Text, View } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import IconLogo from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -8,8 +8,13 @@ export class MissionList extends Component {
         super(props)
 
         this.state = {
-
+            nama: []
         }
+    }
+
+    handleTampil(data) {
+
+        this.setState({ nama: data })
     }
 
     render() {
@@ -90,7 +95,8 @@ export class MissionList extends Component {
                     {/* AKSI */}
                     <Pressable
                         className="bg-green-400 rounded-xl px-3 py-2"
-                        onPress={() => this.props.navigation.navigate('Mission')}
+                        // onPress={() => this.props.navigation.navigate('Mission')}
+                        onPress={this.handleTampil.bind(this, 'kendaraan')}
                     >
                         <Text className="font-visbyBold text-white">Terima</Text>
                     </Pressable>
@@ -129,13 +135,20 @@ export class MissionList extends Component {
                     {/* AKSI */}
                     <Pressable
                         className="bg-green-400 rounded-xl px-3 py-2"
-                        onPress={() => this.props.navigation.navigate('Mission')}
+                        onPress={
+                            () => {
+                                Alert.alert('Simple Button pressed');
+                                this.props.navigation.navigate('Mission');
+                                this.handleTampil.bind(this, 'Ac');
+                            }}
                     >
                         <Text className="font-visbyBold text-white">Terima</Text>
                     </Pressable>
                 </View>
 
-            </View>
+                <Text>{this.state.nama}</Text>
+
+            </View >
         )
     }
 }

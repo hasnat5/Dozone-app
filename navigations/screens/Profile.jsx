@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { Linking } from 'react-native'
 
-const Profile = () => {
+const Profile = ({ navigation }) => {
     return (
         <SafeAreaView className="px-4">
             <View View className="flex-row justify-between py-4" >
@@ -43,7 +43,7 @@ const Profile = () => {
                         <Text className="font-visbyMedium text-base">Lisensi open source</Text>
                     </Pressable>
 
-                    <Pressable onPress={() => Alert.alert('Tentang Button pressed')} className="flex-row items-center gap-6 py-5">
+                    <Pressable onPress={() => navigation.navigate('About')} className="flex-row items-center gap-6 py-5">
                         <Icon name={'info'} size={24} color={'#949494'} />
                         <Text className="font-visbyMedium text-base">Tentang developer</Text>
                     </Pressable>
