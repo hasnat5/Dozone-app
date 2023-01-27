@@ -34,13 +34,13 @@ export const HomeScreen = ({ navigation }) => {
                     </View>
                 </View>
                 <View className="flex-row items-center justify-between bg-blue-200 p-4 rounded-3xl mb-6">
-                    <Text className="font-visbyBold text-2xl">Daftar Misi</Text>
+                    <Text className="font-visbyBold text-2xl">Testing CRUD</Text>
                     <View className="flex items-start">
                         <Pressable
                             className="bg-zinc-600 px-4 py-2 rounded-xl items-start"
-                            onPress={() => navigation.navigate('MissionList')}
+                            onPress={() => navigation.navigate('TestingCrud')}
                         >
-                            <Text className="font-visbyBold text-white text-sm">View Detail</Text>
+                            <Text className="font-visbyBold text-white text-sm">Testing</Text>
                         </Pressable>
                     </View>
                 </View>
