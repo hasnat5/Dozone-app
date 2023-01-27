@@ -10,25 +10,6 @@ export const TestingCrud = ({ navigation }) => {
     const [addData, setAddData] = useState('');
 
     //fetch or read the data from firestore
-    // useEffect(() => {
-    //     todoRef
-    //         .orderBy('creatAt', 'decs')
-    //         .onSnapshot(
-    //             querySnapshot => {
-    //                 const todos = []
-    //                 querySnapshot.forEach(doc => {
-    //                     const { heading } = doc.data()
-    //                     todos.push({
-    //                         id: doc.id,
-    //                         heading,
-    //                     })
-    //                 })
-    //                 setTodos(todos)
-    //             }
-    //         )
-
-    // }, [])
-
 
     useEffect(() => {
         todoRef
