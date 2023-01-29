@@ -1,10 +1,49 @@
-import React from 'react'
-import { Alert, Pressable, Text, View } from 'react-native'
+import React, { useState } from 'react'
+import { Pressable, Text, View } from 'react-native'
+import { firebase } from '../../config'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import IconLogo from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 export const MissionList = ({ navigation }) => {
+    const [todos, setTodos] = useState([]);
+    const todoRef = firebase.firestore().collection('todos');
+
+    //add a todo
+    const ac = () => {
+        //get the timestamp
+        const timestamp = firebase.firestore.FieldValue.serverTimestamp();
+        const data = {
+            title: 'tanpa ac 3 hari',
+            coin: 50,
+            createdAt: timestamp
+        };
+        todoRef
+            .add(data)
+            .catch((error) => {
+                alert(error);
+            })
+
+        navigation.navigate('Mission')
+    }
+
+    const kendaraan = () => {
+        //get the timestamp
+        const timestamp = firebase.firestore.FieldValue.serverTimestamp();
+        const data = {
+            title: 'tanpa kendaraan pribadi',
+            coin: 20,
+            createdAt: timestamp
+        };
+        todoRef
+            .add(data)
+            .catch((error) => {
+                alert(error);
+            })
+
+
+        navigation.navigate('Mission')
+    }
 
     return (
         <View className="p-4">
@@ -26,7 +65,7 @@ export const MissionList = ({ navigation }) => {
                             {/* KOIN */}
                             <View className="flex-row gap-[3px] mr-3">
                                 <Icon name={'stars'} size={14} color={'rgb(251, 191, 36)'} />
-                                <Text className="font-visbyBold text-sm text-amber-400 mb-1">500</Text>
+                                <Text className="font-visbyBold text-sm text-amber-400 mb-1">50</Text>
                             </View>
 
                             {/* WAKTU */}
@@ -42,8 +81,7 @@ export const MissionList = ({ navigation }) => {
                 {/* AKSI */}
                 <Pressable
                     className="bg-green-400 rounded-xl px-3 py-2"
-                    // onPress={() => Alert.alert('cancel Button pressed')}
-                    onPress={() => navigation.navigate('Mission')}
+                    onPress={ac}
                 >
                     <Text className="font-visbyBold text-white">Terima</Text>
                 </Pressable>
@@ -67,7 +105,7 @@ export const MissionList = ({ navigation }) => {
                             {/* KOIN */}
                             <View className="flex-row gap-[3px] mr-3">
                                 <Icon name={'stars'} size={14} color={'rgb(251, 191, 36)'} />
-                                <Text className="font-visbyBold text-sm text-amber-400 mb-1">500</Text>
+                                <Text className="font-visbyBold text-sm text-amber-400 mb-1">20</Text>
                             </View>
 
                             {/* WAKTU */}
@@ -83,8 +121,7 @@ export const MissionList = ({ navigation }) => {
                 {/* AKSI */}
                 <Pressable
                     className="bg-green-400 rounded-xl px-3 py-2"
-                    // onPress={() => this.props.navigation.navigate('Mission')}
-                    onPress={() => Alert.alert('cancel Button pressed')}
+                    onPress={kendaraan}
                 >
                     <Text className="font-visbyBold text-white">Terima</Text>
                 </Pressable>

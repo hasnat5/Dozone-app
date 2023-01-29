@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Text, StatusBar, View, Pressable, FlatList, TouchableOpacity } from 'react-native'
+import CountDown from 'react-native-countdown-component';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { firebase } from '../../config'
@@ -9,17 +10,20 @@ const Mission = ({ navigation }) => {
     const [todos, setTodos] = useState([]);
     const todoRef = firebase.firestore().collection('todos');
 
+    //fetch or read the data from firestore
     useEffect(() => {
         todoRef
-            .orderBy('createdAt', 'decs')
+            .orderBy('createdAt', 'desc')
             .onSnapshot(
                 querySnapshot => {
                     const todos = []
                     querySnapshot.forEach(doc => {
-                        const { heading } = doc.data()
+                        const { title } = doc.data()
+                        const { coin } = doc.data()
                         todos.push({
                             id: doc.id,
-                            heading,
+                            title,
+                            coin,
                         })
                     })
                     setTodos(todos)
@@ -28,26 +32,8 @@ const Mission = ({ navigation }) => {
 
     }, [])
 
-    const MisiBerjalan = (item) =>
-        <View className="bg-white rounded-3xl p-4 flex-row justify-between items-center mb-3">
-            <View>
-                <View className="flex-row gap-[3px]">
-                    <Icon name={'stars'} size={14} color={'rgb(251, 191, 36)'} />
-                    <Text className="font-bold text-sm text-amber-400 mb-1">{item.creatAt}</Text>
-                </View>
 
-                <Text className="font-visbyMedium text-lg w-52">
-                    {item.heading}
-                </Text>
-            </View>
-            <View className="flex-row items-center gap-3">
-                <Text className="font-visbyMedium text-xl">21:00:17</Text>
-                <Pressable onPress={() => deleteTodo(item)}>
-                    <Icon name={'cancel'} size={24} color={'rgb(239, 68, 68)'} />
-                </Pressable>
-            </View>
-        </View>
-
+    //Delete mission
     const deleteTodo = (todos) => {
         todoRef
             .doc(todos.id)
@@ -61,6 +47,39 @@ const Mission = ({ navigation }) => {
             })
     }
 
+
+    const MisiBerjalan = (item) =>
+        <View className="bg-white rounded-3xl p-4 flex-row justify-between items-center mb-3">
+            <View>
+                <View className="flex-row gap-[3px]">
+                    <Icon name={'stars'} size={14} color={'rgb(251, 191, 36)'} />
+                    <Text className="font-bold text-sm text-amber-400 mb-1">{item.coin}</Text>
+                </View>
+
+                <Text className="font-visbyMedium text-lg w-52">
+                    {item.title}
+                </Text>
+            </View>
+            <View className="flex-row items-center gap-3">
+                {/* <CountDown
+                    size={10}
+                    until={10}
+                    onFinish={() => deleteTodo(item)}
+                    timeToShow={['H', 'M', 'S']}
+                /> */}
+                {/* <Text className="font-visbyMedium text-xl">21:00:17</Text> */}
+                <Pressable onPress={() => deleteTodo(item)}>
+                    <Icon name={'cancel'} size={24} color={'rgb(239, 68, 68)'} />
+                </Pressable>
+            </View>
+        </View >
+
+
+    // const handlefinish = (item) => {
+    //     alert('waktu habis')
+    //     deleteTodo(item)
+
+    // }
 
 
     return (
