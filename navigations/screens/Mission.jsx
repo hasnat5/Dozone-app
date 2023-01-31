@@ -4,11 +4,13 @@ import CountDown from 'react-native-countdown-component';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { firebase } from '../../config'
+import { UserCoin } from '../components/UserCoin';
 
 
 const Mission = ({ navigation }) => {
     const [todos, setTodos] = useState([]);
     const todoRef = firebase.firestore().collection('todos');
+    const coinRef = firebase.firestore().collection('coinUser');
 
     //fetch or read the data from firestore
     useEffect(() => {
@@ -45,7 +47,24 @@ const Mission = ({ navigation }) => {
             .catch(error => {
                 alert(error)
             })
+
+
     }
+
+    //Add coin
+    // const tambahKoin = () => {
+    //     //get the timestamp
+    //     // const timestamp = firebase.firestore.FieldValue.serverTimestamp();
+    //     coinRef
+    //         .doc(route.params.item)
+    //         .update({
+    //             coin: 20,
+    //         })
+    //         .catch((error) => {
+    //             alert(error);
+    //         })
+
+    // }
 
 
     const MisiBerjalan = (item) =>
@@ -87,10 +106,7 @@ const Mission = ({ navigation }) => {
             <View View className="flex-row justify-between py-4" >
                 <Text className="font-visbyBold text-xl">Misi Saya</Text>
 
-                <View className="flex-row items-center px-2 rounded-md bg-white">
-                    <Icon style={{ marginRight: 4 }} name={'stars'} size={16} color={'rgb(251, 191, 36)'} />
-                    <Text className="font-visbyBold text-sm">250</Text>
-                </View>
+                <UserCoin />
             </View >
 
             {/* ADD MISSION */}
@@ -109,17 +125,6 @@ const Mission = ({ navigation }) => {
 
                 />
             </View>
-
-
-
-
-            {/*
-        <Text className="text-3xl font-visbyHeavy">Misi a</Text>
-        <Text className="text-3xl font-visbyExtraBold">Misi</Text>
-        <Text className="text-3xl font-visbyBold">Misi Shop</Text>
-        <Text className="text-3xl font-visbyMedium" style={{ fontFamily: "visbyMedium" }}>Misi</Text>
-        <Text className="text-3xl font-visbyRegular">Misi</Text>
-        <Text className="text-3xl font-visbyThin">Misi</Text> */}
 
             <StatusBar style="auto" />
         </SafeAreaView>

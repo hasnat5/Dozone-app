@@ -7,6 +7,7 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import AboutDev from './navigations/screens/AboutDev';
 import { TestingCrud } from './navigations/screens/TestingCrud';
+import { Login } from './navigations/screens/Login';
 
 
 const Stack = createNativeStackNavigator();
@@ -43,7 +44,7 @@ export default function App() {
         <Stack.Screen name="Main" component={MainContainer} />
         <Stack.Screen name="MissionList" component={MissionList} />
         <Stack.Screen name="TestingCrud" component={TestingCrud} />
-        {/* judulHandle={getData} */}
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="About" component={AboutDev} />
       </Stack.Navigator>
     </NavigationContainer>

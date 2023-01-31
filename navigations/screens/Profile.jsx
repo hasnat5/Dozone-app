@@ -48,7 +48,7 @@ const Profile = ({ navigation }) => {
                         <Text className="font-visbyMedium text-base">Tentang developer</Text>
                     </Pressable>
 
-                    <Pressable onPress={() => Alert.alert('Keluar Button pressed')} className="flex-row items-center gap-6 py-5">
+                    <Pressable onPress={() => navigation.navigate('Login')} className="flex-row items-center gap-6 py-5">
                         <Icon name={'logout'} size={24} color={'rgb(239, 68, 68)'} />
                         <Text className="text-red-500 font-visbyMedium text-base">Keluar</Text>
                     </Pressable>

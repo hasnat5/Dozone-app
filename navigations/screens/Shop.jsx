@@ -2,6 +2,7 @@ import React from 'react'
 import { Alert, FlatList, Image, Pressable, StatusBar, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { UserCoin } from '../components/UserCoin';
 
 const DATA = [
     {
@@ -54,10 +55,7 @@ export const Shop = () => {
         <SafeAreaView className="px-2">
             <View View className="flex-row justify-between pt-4 pb-2 px-2" >
                 <Text className="font-visbyBold text-xl">Shop</Text>
-                <View className="flex-row items-center px-2 rounded-md bg-white">
-                    <Icon style={{ marginRight: 4 }} name={'stars'} size={16} color={'rgb(251, 191, 36)'} />
-                    <Text className="font-visbyBold text-sm">250</Text>
-                </View>
+                <UserCoin />
             </View >
 
             <View className="container" >
