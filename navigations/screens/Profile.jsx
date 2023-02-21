@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, Image, Pressable, Text, View } from 'react-native'
+import { Alert, Image, Pressable, Text, TouchableOpacity, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { Linking } from 'react-native'
@@ -27,11 +27,11 @@ const Profile = ({ navigation }) => {
 
 
                 <View className="bg-white px-5 rounded-3xl">
-                    <Text className="text-green-500 font- pt-4">TENTANG APLIKASI</Text>
-                    <Pressable onPress={() => Linking.openURL('https://www.google.co.in/')} className="flex-row items-center gap-6 py-5">
+                    <Text className="text-accent1 font- pt-4">TENTANG APLIKASI</Text>
+                    <TouchableOpacity onPress={() => Linking.openURL('https://www.google.co.in/')} className="flex-row items-center gap-6 py-5">
                         <Icon className="text-gray-400" name={'share'} size={24} color={'#949494'} />
                         <Text className="font-visbyMedium text-base">Berbagi dengan teman</Text>
-                    </Pressable>
+                    </TouchableOpacity>
 
                     <Pressable onPress={() => Linking.openURL('mailto:hasnatferdiananda5@gmail.com?subject=Feedback Dozone-app')} className="flex-row items-center gap-6 py-5">
                         <Icon className="text-gray-400" name={'create'} size={24} color={'#949494'} />
@@ -43,10 +43,10 @@ const Profile = ({ navigation }) => {
                         <Text className="font-visbyMedium text-base">Lisensi open source</Text>
                     </Pressable>
 
-                    <Pressable onPress={() => navigation.navigate('About')} className="flex-row items-center gap-6 py-5">
+                    <TouchableOpacity onPress={() => navigation.navigate('About')} className="flex-row items-center gap-6 py-5">
                         <Icon name={'info'} size={24} color={'#949494'} />
                         <Text className="font-visbyMedium text-base">Tentang developer</Text>
-                    </Pressable>
+                    </TouchableOpacity>
 
                     <Pressable onPress={() => navigation.navigate('Login')} className="flex-row items-center gap-6 py-5">
                         <Icon name={'logout'} size={24} color={'rgb(239, 68, 68)'} />

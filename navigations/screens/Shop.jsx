@@ -6,24 +6,24 @@ import { UserCoin } from '../components/UserCoin';
 
 const DATA = [
     {
+        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        title: 'Default',
+        link: require('../../assets/product/cemara.png'),
+    },
+    {
         id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'First Item',
+        title: 'Dark',
         link: require('../../assets/product/default.png'),
 
     },
     {
         id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        title: 'Second Item',
+        title: 'Autumn',
         link: require('../../assets/product/autumn.png'),
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Third Item',
-        link: require('../../assets/product/cemara.png'),
-    },
-    {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Fourth Item',
+        title: 'Winter',
         link: require('../../assets/product/snow.png'),
     },
 ];
@@ -37,12 +37,12 @@ const Item = ({ title, link }) => (
             source={link}
         />
         <Pressable
-            className="bg-green-400 px-4 py-2 rounded-xl"
+            className="bg-primary1 px-4 py-2 rounded-xl"
             onPress={() => Alert.alert('Simple Button pressed')}
         >
             <View className="flex-row justify-center px-2 rounded-md">
-                <Icon style={{ marginRight: 4 }} name={'stars'} size={16} color={'#ffffff'} />
-                <Text className="font-visbyBold text-sm text-white">250</Text>
+                <Icon style={{ marginRight: 4 }} name={'stars'} size={16} color={'#23695E'} />
+                <Text className="font-visbyBold text-sm text-accent1">250</Text>
             </View>
         </Pressable>
     </View >

@@ -47,10 +47,21 @@ const Mission = ({ navigation }) => {
             .catch(error => {
                 alert(error)
             })
-
-
     }
 
+
+    const Timer = () => {
+        return (
+            <CountDown
+                size={10}
+                until={8640}
+                onFinish={() => {
+                    Alert.alert('misi selesai')
+                }}
+                timeToShow={['H', 'M', 'S']}
+            />
+        )
+    }
     //Add coin
     // const tambahKoin = () => {
     //     //get the timestamp
@@ -80,12 +91,7 @@ const Mission = ({ navigation }) => {
                 </Text>
             </View>
             <View className="flex-row items-center gap-3">
-                {/* <CountDown
-                    size={10}
-                    until={10}
-                    onFinish={() => deleteTodo(item)}
-                    timeToShow={['H', 'M', 'S']}
-                /> */}
+                {/* <Timer /> */}
                 {/* <Text className="font-visbyMedium text-xl">21:00:17</Text> */}
                 <Pressable onPress={() => deleteTodo(item)}>
                     <Icon name={'cancel'} size={24} color={'rgb(239, 68, 68)'} />

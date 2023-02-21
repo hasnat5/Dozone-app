@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "airblock",
-    "slug": "airblock",
+    "name": "Dozone",
+    "slug": "dozone",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,10 +24,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.natkun5.dozone"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b0018038-2b5d-4054-8dd0-e517abc3474a"
+      }
     }
   }
 }

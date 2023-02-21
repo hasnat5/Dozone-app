@@ -4,7 +4,7 @@ import { TextInput } from "@react-native-material/core";
 import Icon from 'react-native-vector-icons/Ionicons';
 import { StatusBar } from 'expo-status-bar';
 
-export const Login = ({ navigation }) => {
+const Register = ({ navigation }) => {
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -22,17 +22,21 @@ export const Login = ({ navigation }) => {
             </View>
 
             <View className="bg-white px-9 py-8 rounded-t-[32px] justify-end">
-                <Text className="font-visbyBold text-2xl mb-6">Login</Text>
+                <Text className="font-visbyBold text-2xl mb-6">Register</Text>
                 <View className="mb-4">
-                    <TextInput label="email" variant='outlined' />
+                    <TextInput label="dozone@gmail.com" variant='outlined' />
                 </View>
 
                 <View className="mb-4">
-                    <TextInput label="password" variant='outlined' />
+                    <TextInput label="dozone420" variant='outlined' />
+                </View>
+
+                <View className="mb-4">
+                    <TextInput label="***" variant='outlined' />
                 </View>
 
                 <TouchableOpacity className="bg-[#F7B11B] py-2 rounded-xl mb-6" onPress={() => navigation.navigate('Main')}>
-                    <Text className="text-center font-visbyBold text-base">Login</Text>
+                    <Text className="text-center font-visbyBold text-base">Register</Text>
                 </TouchableOpacity>
 
                 {/* <Text className='text-center font-visbyBold text-base mb-4'>Or</Text>
@@ -43,8 +47,8 @@ export const Login = ({ navigation }) => {
 
                 </View> */}
 
-                <Text className="font-visbyBold text-center text-xs">Dont have an account?
-                    <Text className="text-[#F7B11B]" onPress={() => navigation.navigate('Register')}> Sign Up</Text>
+                <Text className="font-visbyBold text-center text-xs">Already have an account?
+                    <Text className="text-[#F7B11B]" onPress={() => navigation.navigate('Login')}> Sign In</Text>
                 </Text>
 
             </View>
@@ -52,6 +56,7 @@ export const Login = ({ navigation }) => {
             <StatusBar style="light" />
 
         </SafeAreaView>
-
     )
 }
+
+export default Register
