@@ -1,10 +1,13 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useContext, useLayoutEffect } from 'react'
 import { Image, SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
 import { TextInput } from "@react-native-material/core";
 import Icon from 'react-native-vector-icons/Ionicons';
 import { StatusBar } from 'expo-status-bar';
+import { AuthContext } from '../../context/AuthContext';
 
-export const Login = ({ navigation }) => {
+const Login = ({ navigation }) => {
+
+    const { login } = useContext(AuthContext)
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -31,7 +34,10 @@ export const Login = ({ navigation }) => {
                     <TextInput label="password" variant='outlined' />
                 </View>
 
-                <TouchableOpacity className="bg-[#F7B11B] py-2 rounded-xl mb-6" onPress={() => navigation.navigate('Main')}>
+                <TouchableOpacity
+                    className="bg-[#F7B11B] py-2 rounded-xl mb-6"
+                    onPress={() => { login() }}
+                >
                     <Text className="text-center font-visbyBold text-base">Login</Text>
                 </TouchableOpacity>
 
@@ -55,3 +61,5 @@ export const Login = ({ navigation }) => {
 
     )
 }
+
+export default Login

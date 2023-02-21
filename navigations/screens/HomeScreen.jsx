@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, ScrollView, Pressable, ImageBackground, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { UserCoin } from '../components/UserCoin';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { AuthContext } from '../../context/AuthContext';
 
 
 
 
 export const HomeScreen = ({ navigation }) => {
 
-    // const win = Dimensions.get('window');
+    const { test } = useContext(AuthContext)
 
     return (
 

@@ -9,6 +9,8 @@ import AboutDev from './navigations/screens/AboutDev';
 import { TestingCrud } from './navigations/screens/TestingCrud';
 import { Login } from './navigations/screens/Login';
 import Register from './navigations/screens/Register';
+import { AuthProvider } from './context/AuthContext';
+import AppNav from './navigations/AppNav';
 
 
 const Stack = createNativeStackNavigator();
@@ -40,15 +42,8 @@ export default function App() {
 
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login" >
-        <Stack.Screen name="Main" component={MainContainer} />
-        <Stack.Screen name="MissionList" component={MissionList} />
-        <Stack.Screen name="TestingCrud" component={TestingCrud} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="About" component={AboutDev} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AuthProvider>
+      <AppNav />
+    </AuthProvider>
   );
 };

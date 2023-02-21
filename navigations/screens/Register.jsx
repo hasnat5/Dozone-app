@@ -35,7 +35,7 @@ const Register = ({ navigation }) => {
                     <TextInput label="***" variant='outlined' />
                 </View>
 
-                <TouchableOpacity className="bg-[#F7B11B] py-2 rounded-xl mb-6" onPress={() => navigation.navigate('Main')}>
+                <TouchableOpacity className="bg-[#F7B11B] py-2 rounded-xl mb-6" onPress={() => navigation.navigate('Login')}>
                     <Text className="text-center font-visbyBold text-base">Register</Text>
                 </TouchableOpacity>
 

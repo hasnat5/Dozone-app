@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Alert, Image, Pressable, Text, TouchableOpacity, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { Linking } from 'react-native'
+import { AuthContext } from '../../context/AuthContext'
 
 const Profile = ({ navigation }) => {
+
+    const { logout } = useContext(AuthContext)
+
     return (
         <SafeAreaView className="px-4">
             <View View className="flex-row justify-between py-4" >
@@ -16,7 +20,8 @@ const Profile = ({ navigation }) => {
                     <Image
                         className="self-center w-14 h-14 mr-3 rounded-full"
                         source={{
-                            uri: 'https://reactnative.dev/img/tiny_logo.png',
+                            // uri: 'https://reactnative.dev/img/tiny_logo.png',
+                            uri: 'https://media.licdn.com/dms/image/D5603AQFb82EwFLP7dA/profile-displayphoto-shrink_800_800/0/1670933897632?e=1682553600&v=beta&t=uMPOkXQQoYbsFh2_SSd_ouZlHibMmCnDo9XkPtbXbzI',
                         }}
                     />
                     <View className="justify-center">
@@ -48,7 +53,7 @@ const Profile = ({ navigation }) => {
                         <Text className="font-visbyMedium text-base">Tentang developer</Text>
                     </TouchableOpacity>
 
-                    <Pressable onPress={() => navigation.navigate('Login')} className="flex-row items-center gap-6 py-5">
+                    <Pressable onPress={() => { logout() }} className="flex-row items-center gap-6 py-5">
                         <Icon name={'logout'} size={24} color={'rgb(239, 68, 68)'} />
                         <Text className="text-red-500 font-visbyMedium text-base">Keluar</Text>
                     </Pressable>
