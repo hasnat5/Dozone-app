@@ -9,10 +9,11 @@
     "splash": {
       "image": "./assets/splash-screen.png",
       "resizeMode": "contain",
-      "backgroundColor": "#007972"
+      "backgroundColor": "#FFFFFF"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/96e03f40-46d9-494f-b341-e4f682a556f3"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -32,8 +33,11 @@
     },
     "extra": {
       "eas": {
-        "projectId": "b0018038-2b5d-4054-8dd0-e517abc3474a"
+        "projectId": "96e03f40-46d9-494f-b341-e4f682a556f3"
       }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }

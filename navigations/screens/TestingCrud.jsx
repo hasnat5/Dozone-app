@@ -4,7 +4,7 @@ import { firebase } from '../../config'
 
 
 export const TestingCrud = ({ navigation }) => {
-    const todoRef = firebase.firestore().collection('todos');
+    // const todoRef = firebase.firestore().collection('todos');
     const [addData, setAddData] = useState('');
 
     //add a todo

@@ -1,14 +1,7 @@
 import React, { useEffect } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native'
-import { MissionList } from './navigations/screens/MissionList';
-import MainContainer from './navigations/MainContainer';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
-import AboutDev from './navigations/screens/AboutDev';
-import { TestingCrud } from './navigations/screens/TestingCrud';
-import { Login } from './navigations/screens/Login';
-import Register from './navigations/screens/Register';
 import { AuthProvider } from './context/AuthContext';
 import AppNav from './navigations/AppNav';
 
@@ -38,8 +31,6 @@ export default function App() {
   } else {
     SplashScreen.hideAsync()
   }
-
-
 
   return (
     <AuthProvider>

@@ -1,6 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import React, { useLayoutEffect } from 'react'
+import React, { useContext, useLayoutEffect } from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons'
+import { AuthContext } from '../context/AuthContext'
 import { HomeScreen } from './screens/HomeScreen'
 import Mission from './screens/Mission'
 import Profile from './screens/Profile'
@@ -17,6 +18,8 @@ const Tab = createBottomTabNavigator();
 
 const MainContainer = ({ navigation }) => {
 
+    const { userTema } = useContext(AuthContext)
+
     useLayoutEffect(() => {
         navigation.setOptions({
             headerShown: false,
@@ -27,7 +30,7 @@ const MainContainer = ({ navigation }) => {
         <Tab.Navigator
             initialRouteName={homeName}
             screenOptions={({ route }) => ({
-                tabBarActiveTintColor: 'rgb(74, 222, 128)',
+                tabBarActiveTintColor: `${userTema.primary2}`,
                 tabBarLabelStyle: { fontSize: 12, paddingBottom: 6, fontFamily: 'visbyMedium' },
                 tabBarStyle: {
                     height: 56,

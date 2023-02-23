@@ -4,10 +4,11 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { Linking } from 'react-native'
 import { AuthContext } from '../../context/AuthContext'
+import { BASE_URL } from '../../config'
 
 const Profile = ({ navigation }) => {
 
-    const { logout } = useContext(AuthContext)
+    const { logout, userInfo, userTema } = useContext(AuthContext)
 
     return (
         <SafeAreaView className="px-4">
@@ -20,20 +21,19 @@ const Profile = ({ navigation }) => {
                     <Image
                         className="self-center w-14 h-14 mr-3 rounded-full"
                         source={{
-                            // uri: 'https://reactnative.dev/img/tiny_logo.png',
-                            uri: 'https://media.licdn.com/dms/image/D5603AQFb82EwFLP7dA/profile-displayphoto-shrink_800_800/0/1670933897632?e=1682553600&v=beta&t=uMPOkXQQoYbsFh2_SSd_ouZlHibMmCnDo9XkPtbXbzI',
+                            uri: `${BASE_URL}${userInfo.gambar}`
                         }}
                     />
                     <View className="justify-center">
-                        <Text className="text-lg font-visbyBold">Hasnat Ferdiananda</Text>
-                        <Text className="text-sm">hasnatferdiananda5@gmail.com</Text>
+                        <Text className="text-lg font-visbyBold">{userInfo.nama}</Text>
+                        <Text className="text-sm">{userInfo.email}</Text>
                     </View>
                 </View>
 
 
                 <View className="bg-white px-5 rounded-3xl">
-                    <Text className="text-accent1 font- pt-4">TENTANG APLIKASI</Text>
-                    <TouchableOpacity onPress={() => Linking.openURL('https://www.google.co.in/')} className="flex-row items-center gap-6 py-5">
+                    <Text className="text-accent1 font- pt-4" style={{ color: `${userTema.accent1}` }}>TENTANG APLIKASI</Text>
+                    <TouchableOpacity onPress={() => Linking.openURL('https://drive.google.com/drive/folders/1KzSm6F6qfqYcQ8dtM1D_w1RlgODdkb3g?usp=sharing')} className="flex-row items-center gap-6 py-5">
                         <Icon className="text-gray-400" name={'share'} size={24} color={'#949494'} />
                         <Text className="font-visbyMedium text-base">Berbagi dengan teman</Text>
                     </TouchableOpacity>
