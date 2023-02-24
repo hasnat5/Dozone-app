@@ -18,7 +18,7 @@ const Login = ({ navigation }) => {
     }, [])
 
     return (
-        <SafeAreaView className="container h-full flex bg-primary1 bg-[#D8F5E099]">
+        <SafeAreaView className="container h-full flex bg-[#D8F5E099]">
             <View className='flex-grow justify-center'>
                 <Image
                     className="self-center w-36 h-36"
@@ -29,30 +29,22 @@ const Login = ({ navigation }) => {
             <View className="bg-white px-9 py-8 rounded-t-[32px] justify-end">
                 <Text className="font-visbyBold text-2xl mb-6">Login</Text>
                 <View className="mb-4">
-                    <TextInput label="user@gmail.com" variant='outlined' value={email} onChangeText={(text) => setEmail(text)} />
+                    <TextInput label="Email" variant='outlined' value={email} onChangeText={(text) => setEmail(text)} />
                 </View>
 
                 <View className="mb-4">
-                    <TextInput label="***" variant='outlined' value={password} onChangeText={(text) => setPassword(text)} />
+                    <TextInput label="Password" secureTextEntry={true} variant='outlined' value={password} onChangeText={(text) => setPassword(text)} />
                 </View>
 
                 <TouchableOpacity
-                    className="bg-primary2 bg-[#2E8B7A] py-2 rounded-xl mb-6"
+                    className="bg-[#2E8B7A] py-2 rounded-xl mb-6"
                     onPress={() => { login(email, password) }}
                 >
                     <Text className="text-center font-visbyBold text-base text-white">Login</Text>
                 </TouchableOpacity>
 
-                {/* <Text className='text-center font-visbyBold text-base mb-4'>Or</Text>
-
-                <View className="flex-row justify-center gap-6 mb-4">
-                    <Icon className="text-gray-400" name={'logo-google'} size={24} color={'#949494'} />
-                    <Icon className="text-gray-400" name={'logo-facebook'} size={24} color={'#949494'} />
-
-                </View> */}
-
                 <Text className="font-visbyBold text-center text-xs">Dont have an account?
-                    <Text className="text-primary2 text-[#2E8B7A]" onPress={() => navigation.navigate('Register')}> Sign Up</Text>
+                    <Text className="text-[#2E8B7A]" onPress={() => navigation.navigate('Register')}> Sign Up</Text>
                 </Text>
 
             </View>

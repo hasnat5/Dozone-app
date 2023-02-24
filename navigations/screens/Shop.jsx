@@ -66,7 +66,7 @@ export const Shop = () => {
         try {
             const response = await axios.post(`${BASE_URL}tema/${id}/ubah`, {})
             console.log(response.data)
-            Alert.alert('Tema berubah')
+            Alert.alert('Perhatian', 'mohon restart aplikasi untuk merubah tema')
 
         } catch (error) {
             Alert.alert('gagal terubah')

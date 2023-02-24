@@ -95,15 +95,15 @@ export const AuthProvider = ({ children }) => {
             setIsLoading(true)
             let userToken = await AsyncStorage.getItem('userToken')
             let userInfo = await AsyncStorage.getItem('userInfo')
-            // let userTema = await AsyncStorage.getItem('userTema')
+            let userTema = await AsyncStorage.getItem('userTema')
 
             userInfo = JSON.parse(userInfo)
-            // userTema = JSON.parse(userTema)
+            userTema = JSON.parse(userTema)
 
             if (userToken) {
                 setUserToken(userToken)
                 setUserInfo(userInfo)
-                // setUserTema(userTema)
+                setUserTema(userTema)
 
             }
             setIsLoading(false)

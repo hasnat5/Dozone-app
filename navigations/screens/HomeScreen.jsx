@@ -14,7 +14,7 @@ export const HomeScreen = ({ navigation }) => {
     const [poin, setPoin] = useState(null);
     const isFocused = useIsFocused();
 
-    const { userTema } = useContext(AuthContext)
+    const { userTema, userInfo } = useContext(AuthContext)
 
     async function getPoin() {
         try {
@@ -57,13 +57,16 @@ export const HomeScreen = ({ navigation }) => {
                     resizeMode="cover"
                     imageStyle={{ borderRadius: 16 }}
                 >
-                    <Text className="font-visbyBold text-3xl" style={{ color: `${userTema.accent2}` }}>Daftar Misi</Text>
+                    <View>
+                        <Text className="font-visbyBold text-base" style={{ color: `${userTema.accent2}` }}>Selamat Datang,</Text>
+                        <Text className="font-visbyBold text-3xl" style={{ color: `${userTema.accent2}` }}>{userInfo.nama}</Text>
+                    </View>
                     <View className="flex items-start">
                         <Pressable
                             className="bg-white px-4 py-2 rounded-full items-start"
-                            onPress={() => navigation.navigate('MissionList')}
+                            onPress={() => navigation.navigate('Shop')}
                         >
-                            <Text className="font-visbyMedium text-sm" style={{ color: `${userTema.accent1}` }}>Daftar misi</Text>
+                            <Text className="font-visbyMedium text-sm" style={{ color: `${userTema.accent1}` }}>Daftar Tema</Text>
                         </Pressable>
                     </View>
                 </ImageBackground>
@@ -79,7 +82,7 @@ export const HomeScreen = ({ navigation }) => {
 
                     <Pressable
                         className="bg-white px-4 py-2 rounded-lg flex items-center"
-                        onPress={() => navigation.navigate('TestingCrud')}
+                        onPress={() => navigation.navigate('MissionList')}
                     >
                         {/* <Icon name='home' /> */}
                         <Icon name={'run-fast'} size={24} color={userTema.accent1} />
@@ -128,14 +131,6 @@ export const HomeScreen = ({ navigation }) => {
                 </View>
 
                 <StatusBar style="auto" />
-
-                {/*
-        <Text className="text-3xl font-visbyHeavy">Misi a</Text>
-        <Text className="text-3xl font-visbyExtraBold">Misi</Text>
-        <Text className="text-3xl font-visbyBold">Misi Shop</Text>
-        <Text className="text-3xl font-visbyMedium" style={{ fontFamily: "visbyMedium" }}>Misi</Text>
-        <Text className="text-3xl font-visbyRegular">Misi</Text>
-        <Text className="text-3xl font-visbyThin">Misi</Text> */}
 
             </ScrollView >
         </SafeAreaView >

@@ -12,7 +12,12 @@ const AppStack = () => {
     return (
         <Stack.Navigator initialRouteName="Main" >
             <Stack.Screen name="Main" component={MainContainer} />
-            <Stack.Screen name="MissionList" component={MissionList} />
+            <Stack.Screen
+                name="MissionList"
+                component={MissionList}
+                options={{
+                    title: 'Daftar Misi',
+                }} />
             <Stack.Screen name="TestingCrud" component={TestingCrud} />
             <Stack.Screen name="About" component={AboutDev} />
         </Stack.Navigator>
