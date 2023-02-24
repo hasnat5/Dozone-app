@@ -23,7 +23,6 @@ export const AuthProvider = ({ children }) => {
                 console.log(response.data)
                 setUserInfo(response.data)
                 AsyncStorage.setItem('userInfo', JSON.stringify(userInfo))
-                getTema()
 
             } catch (error) {
                 Alert.alert('tolong login ulang')
@@ -37,6 +36,7 @@ export const AuthProvider = ({ children }) => {
                 console.log(response.data)
                 setUserTema(response.data)
                 AsyncStorage.setItem('userTema', JSON.stringify(userTema))
+                getInfo()
 
             } catch (error) {
                 Alert.alert('tema gagal di load')
@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }) => {
                 console.log(response.data.jwt)
                 setUserToken(response.data.jwt)
                 AsyncStorage.setItem('userToken', response.data.jwt)
-                getInfo()
+                getTema()
 
             } catch (error) {
                 console.log(`login error ${error}`)
@@ -70,8 +70,8 @@ export const AuthProvider = ({ children }) => {
     const logout = () => {
         setIsLoading(true)
         setUserToken(null)
-        setUserInfo(null)
         setUserTema(null)
+        setUserInfo(null)
         AsyncStorage.removeItem('userToken')
         AsyncStorage.removeItem('userInfo')
         AsyncStorage.removeItem('userTema')
@@ -94,16 +94,16 @@ export const AuthProvider = ({ children }) => {
         try {
             setIsLoading(true)
             let userToken = await AsyncStorage.getItem('userToken')
-            let userInfo = await AsyncStorage.getItem('userInfo')
             let userTema = await AsyncStorage.getItem('userTema')
+            let userInfo = await AsyncStorage.getItem('userInfo')
 
             userInfo = JSON.parse(userInfo)
             userTema = JSON.parse(userTema)
 
             if (userToken) {
                 setUserToken(userToken)
-                setUserInfo(userInfo)
                 setUserTema(userTema)
+                setUserInfo(userInfo)
 
             }
             setIsLoading(false)
