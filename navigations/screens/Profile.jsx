@@ -43,10 +43,10 @@ const Profile = ({ navigation }) => {
                         <Text className="font-visbyMedium text-base">Masukan</Text>
                     </Pressable>
 
-                    <Pressable onPress={() => Alert.alert('Lisensi Button pressed')} className="flex-row items-center gap-6 py-5">
+                    {/* <Pressable onPress={() => Alert.alert('Lisensi Button pressed')} className="flex-row items-center gap-6 py-5">
                         <Icon className="text-gray-400" name={'copyright'} size={24} color={'#949494'} />
                         <Text className="font-visbyMedium text-base">Lisensi open source</Text>
-                    </Pressable>
+                    </Pressable> */}
 
                     <TouchableOpacity onPress={() => navigation.navigate('About')} className="flex-row items-center gap-6 py-5">
                         <Icon name={'info'} size={24} color={'#949494'} />

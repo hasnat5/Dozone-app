@@ -20,9 +20,9 @@ export const AuthProvider = ({ children }) => {
             try {
                 const response = await axios.get(`${BASE_URL}user/`
                 )
-                console.log(response.data)
                 setUserInfo(response.data)
                 AsyncStorage.setItem('userInfo', JSON.stringify(userInfo))
+                console.log(response.data)
 
             } catch (error) {
                 Alert.alert('tolong login ulang')
@@ -33,9 +33,9 @@ export const AuthProvider = ({ children }) => {
         async function getTema() {
             try {
                 const response = await axios.get(`${BASE_URL}tema/aktif`)
-                console.log(response.data)
                 setUserTema(response.data)
                 AsyncStorage.setItem('userTema', JSON.stringify(userTema))
+                console.log(response.data)
                 getInfo()
 
             } catch (error) {
@@ -50,9 +50,9 @@ export const AuthProvider = ({ children }) => {
                     email,
                     password
                 })
-                console.log(response.data.jwt)
                 setUserToken(response.data.jwt)
                 AsyncStorage.setItem('userToken', response.data.jwt)
+                console.log(response.data.jwt)
                 getTema()
 
             } catch (error) {
@@ -72,9 +72,9 @@ export const AuthProvider = ({ children }) => {
         setUserToken(null)
         setUserTema(null)
         setUserInfo(null)
-        AsyncStorage.removeItem('userToken')
         AsyncStorage.removeItem('userInfo')
         AsyncStorage.removeItem('userTema')
+        AsyncStorage.removeItem('userToken')
 
         axios.post(`${BASE_URL}logout/`, {})
             .then(res => {
@@ -93,17 +93,17 @@ export const AuthProvider = ({ children }) => {
     const isLoggedIn = async () => {
         try {
             setIsLoading(true)
+            let userInfo = await AsyncStorage.getItem('userInfo')
             let userToken = await AsyncStorage.getItem('userToken')
             let userTema = await AsyncStorage.getItem('userTema')
-            let userInfo = await AsyncStorage.getItem('userInfo')
 
             userInfo = JSON.parse(userInfo)
             userTema = JSON.parse(userTema)
 
-            if (userToken) {
-                setUserToken(userToken)
-                setUserTema(userTema)
+            if (userInfo) {
                 setUserInfo(userInfo)
+                setUserTema(userTema)
+                setUserToken(userToken)
 
             }
             setIsLoading(false)
