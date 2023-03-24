@@ -24,6 +24,8 @@ export const AuthProvider = ({ children }) => {
                 AsyncStorage.setItem('userInfo', JSON.stringify(userInfo))
                 console.log(response.data)
 
+
+
             } catch (error) {
                 Alert.alert('tolong login ulang')
                 console.error(error);
@@ -37,6 +39,7 @@ export const AuthProvider = ({ children }) => {
                 AsyncStorage.setItem('userTema', JSON.stringify(userTema))
                 console.log(response.data)
                 getInfo()
+
 
             } catch (error) {
                 Alert.alert('tema gagal di load')
@@ -55,6 +58,7 @@ export const AuthProvider = ({ children }) => {
                 console.log(response.data.jwt)
                 getTema()
 
+
             } catch (error) {
                 console.log(`login error ${error}`)
                 Alert.alert('email atau pass salah')
@@ -72,9 +76,9 @@ export const AuthProvider = ({ children }) => {
         setUserToken(null)
         setUserTema(null)
         setUserInfo(null)
-        AsyncStorage.removeItem('userInfo')
-        AsyncStorage.removeItem('userTema')
         AsyncStorage.removeItem('userToken')
+        AsyncStorage.removeItem('userTema')
+        AsyncStorage.removeItem('userInfo')
 
         axios.post(`${BASE_URL}logout/`, {})
             .then(res => {
@@ -93,14 +97,14 @@ export const AuthProvider = ({ children }) => {
     const isLoggedIn = async () => {
         try {
             setIsLoading(true)
-            let userInfo = await AsyncStorage.getItem('userInfo')
             let userToken = await AsyncStorage.getItem('userToken')
+            let userInfo = await AsyncStorage.getItem('userInfo')
             let userTema = await AsyncStorage.getItem('userTema')
 
             userInfo = JSON.parse(userInfo)
             userTema = JSON.parse(userTema)
 
-            if (userInfo) {
+            if (userToken) {
                 setUserInfo(userInfo)
                 setUserTema(userTema)
                 setUserToken(userToken)
